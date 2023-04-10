@@ -107,7 +107,7 @@ def main_objective(nn_params, nn2_params, mh_NN_inp, obs_freqs, obs_frac, del_le
         ##
         # MH-based deletion frequencies
         ##
-        mh_scores = nn_match_score_function(nn_params, mh_NN_inp[idx])
+        mh_scores = nn_match_score_function(nn_params, mh_NN_inp[idx], dropout_rate=0.15)
         Js = np.array(del_lens[idx])
         unnormalized_fq = np.exp(mh_scores - 0.25 * Js)
 
@@ -220,13 +220,17 @@ def train_and_create(master_data: dict, filenames: Filenames,
 
     both_objective_grad = multigrad(objective)
 
+    # nn_match_score_function(init_nn_params, np.array(INP_train[0]))
+    #
+    # exit(1)
+
     def print_perf(nn_params, nn2_params, iter):
         print("= finished iteration")
         print_and_log(str(iter), filenames.log_fn)
         if iter % 5 != 0:
             return None
 
-        train_loss = main_objective(nn_params, nn2_params, INP_train, OBS_FREQS_train, OBS_FRAC_train, DEL_LENS_train, batch_size)
+        train_loss = main_objective(nn_params, nn2_params, INP_train, OBS_FREQS_train, OBS_FRAC_train, DEL_LENS_train, len(INP_train))
         test_loss = main_objective(nn_params, nn2_params, INP_test, OBS_FREQS_test, OBS_FRAC_train, DEL_LENS_test, len(INP_test))
 
         # TODO RSQ broken, should be fixed

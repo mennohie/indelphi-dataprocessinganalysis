@@ -1,0 +1,6 @@
+out dir: aaq
+Loading data...
+0
+Iteration: 0, Train Loss: -0.2208651567612219, Test loss: -0.22991610793983855.
+ Iter | Train Loss	| Train Rsq1	| Train Rsq2	| Test Loss	| Test Rsq1	| Test Rsq2
+2023-04-08 15:43:50.741454 aaq aaa
