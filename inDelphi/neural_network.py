@@ -1,3 +1,4 @@
+import json
 import pickle, datetime
 import autograd.numpy.random as npr
 import pandas as pd
@@ -60,6 +61,7 @@ def create_test_set(INP, OBS, OBS2, NAMES, DEL_LENS, out_dir, seed):
     return INP_train, INP_test, OBS_train, OBS_test, OBS2_train, OBS2_test, NAMES_train, NAMES_test, DEL_LENS_train, DEL_LENS_test
 
 def save_parameters(nn_params, nn2_params, out_dir_params, letters):
+    print("saving..", letters)
     pickle.dump(nn_params, open(out_dir_params + letters + '_nn.pkl', 'wb'))
     pickle.dump(nn2_params, open(out_dir_params + letters + '_nn2.pkl', 'wb'))
     return
@@ -98,14 +100,14 @@ def adam_minmin(grad_both, init_params_nn, init_params_nn2, callback=None, num_i
         x_nn2 = x_nn2 - step_size * mhat_nn2 / (np.sqrt(vhat_nn2) + eps)
     return unflatten_nn(x_nn), unflatten_nn2(x_nn2)
 
-def main_objective(nn_params, nn2_params, mh_NN_inp, obs_freqs, obs_frac, del_lens, num_samples):
+def main_objective(nn_params, nn2_params, mh_NN_inp, obs_freqs, obs_frac, del_lens, num_samples, dropout_rate=0.0):
     LOSS = 0
     for idx in tqdm.tqdm(range(len(mh_NN_inp)), desc="#GRNA's"):
 
         ##
         # MH-based deletion frequencies
         ##
-        mh_scores = nn_match_score_function(nn_params, mh_NN_inp[idx], dropout_rate=0.15)
+        mh_scores = nn_match_score_function(nn_params, mh_NN_inp[idx], dropout_rate=dropout_rate)
         Js = np.array(del_lens[idx])
         unnormalized_fq = np.exp(mh_scores - 0.25 * Js)
 
@@ -115,7 +117,7 @@ def main_objective(nn_params, nn2_params, mh_NN_inp, obs_freqs, obs_frac, del_le
         for jdx in range(len(mh_vector)):
             if del_lens[idx][jdx] == mh_vector[jdx]:
                 dl = del_lens[idx][jdx]
-                mhless_score = nn_match_score_function(nn2_params, np.array(dl))
+                mhless_score = nn_match_score_function(nn2_params, np.array(dl), dropout_rate=dropout_rate)
                 mhless_score = np.exp(mhless_score - 0.25 * dl)
                 mask = np.concatenate(
                     [np.zeros(jdx, ), np.ones(1, ) * mhless_score, np.zeros(len(mh_vector) - jdx - 1, )])
@@ -145,7 +147,7 @@ def main_objective(nn_params, nn2_params, mh_NN_inp, obs_freqs, obs_frac, del_le
         ##
         dls = np.arange(1, 28 + 1)
         dls = dls.reshape(28, 1)
-        nn2_scores = nn_match_score_function(nn2_params, dls)
+        nn2_scores = nn_match_score_function(nn2_params, dls, dropout_rate=dropout_rate)
         unnormalized_nn2 = np.exp(nn2_scores - 0.25 * np.arange(1, 28 + 1))
 
         # iterate through del_lens vector, adding mh_scores (already computed above) to the correct index
@@ -204,54 +206,58 @@ def init_test_set(master_data, filenames, seed):
     return create_test_set(INP, OBS_FREQS, OBS_FRAC, NAMES, DEL_LENS, filenames.out_dir, seed)
 
 def train_and_create(master_data: dict, filenames: Filenames,
-                     num_epochs=10, param_scale = 0.1, step_size = 0.10, batch_size=200):
+                     num_epochs=200, param_scale = 0.1, step_size = 0.10, batch_size=200, seed_n=1, dropout_rate=0.2):
     """
     Trains and creates the MH-NN and MH-less NN
     """
-    seed = npr.RandomState(1)
+
+
+    results = {
+        "seed": seed_n,
+        "dropout_rate": dropout_rate,
+        "num_epochs": num_epochs,
+        "out_dir": filenames.out_dir,
+        "training": [],
+        "test": [],
+        "test_no_drop": []
+    }
+
+    def save_results():
+        with open(filenames.out_dir + '/convert.txt', 'w') as convert_file:
+            convert_file.write(json.dumps(results))
+
+    save_results()
+
+
+    seed = npr.RandomState(seed_n)
 
     INP_train, INP_test, OBS_FREQS_train, OBS_FREQS_test, OBS_FRAC_train, OBS_FRAC_test, NAMES_train, NAMES_test, DEL_LENS_train, DEL_LENS_test = init_test_set(master_data, filenames, seed)
     init_nn_params, init_nn2_params, num_batches = init_model(seed, INP_train, param_scale, batch_size)
 
     def objective(nn_params, nn2_params):
-        return main_objective(nn_params, nn2_params, INP_train, OBS_FREQS_train, OBS_FRAC_train, DEL_LENS_train, batch_size)
+        return main_objective(nn_params, nn2_params, INP_train, OBS_FREQS_train, OBS_FRAC_train, DEL_LENS_train, batch_size, dropout_rate=dropout_rate)
 
     both_objective_grad = multigrad(objective)
-
-    # nn_match_score_function(init_nn_params, np.array(INP_train[0]))
-    #
-    # exit(1)
 
     def print_perf(nn_params, nn2_params, iter):
         print("= finished iteration")
         print_and_log(str(iter), filenames.log_fn)
-        if iter % 5 != 0:
-            return None
 
-        train_loss = main_objective(nn_params, nn2_params, INP_train, OBS_FREQS_train, OBS_FRAC_train, DEL_LENS_train, len(INP_train))
-        test_loss = main_objective(nn_params, nn2_params, INP_test, OBS_FREQS_test, OBS_FRAC_train, DEL_LENS_test, len(INP_test))
+        train_loss = main_objective(nn_params, nn2_params, INP_train, OBS_FREQS_train, OBS_FRAC_train, DEL_LENS_train, len(INP_train), dropout_rate=dropout_rate)
+        test_loss_drop = main_objective(nn_params, nn2_params, INP_test, OBS_FREQS_test, OBS_FRAC_train, DEL_LENS_test, len(INP_test), dropout_rate=dropout_rate)
+        test_loss = main_objective(nn_params, nn2_params, INP_test, OBS_FREQS_test, OBS_FRAC_train, DEL_LENS_test, len(INP_test), dropout_rate=0.0)
 
-        # TODO RSQ broken, should be fixed
-        # tr1_rsq, tr2_rsq = rsq(nn_params, nn2_params, INP_train, OBS_train, OBS2_train, DEL_LENS_train, batch_size,
-        #                        seed)
-        # te1_rsq, te2_rsq = rsq(nn_params, nn2_params, INP_test, OBS_test, OBS2_test, DEL_LENS_test, len(INP_test))
+        results["training"].append(train_loss)
+        results["test"].append(test_loss_drop)
+        results["test_no_drop"].append(test_loss)
 
-        out_line = f"Iteration: {iter}, Train Loss: {train_loss}, Test loss: {test_loss}."
+        save_results()
+
+        out_line = f"Iteration: {iter}, Train Loss: {train_loss}, Test loss: {test_loss}, Test loss (dropout): {test_loss_drop}."
         print_and_log(out_line, filenames.log_fn)
 
-        if iter % 20 == 0:
-            letters = alphabetize(int(iter / 10))
-            print_and_log(" Iter | Train Loss\t| Train Rsq1\t| Train Rsq2\t| Test Loss\t| Test Rsq1\t| Test Rsq2",
-                          filenames.log_fn)
-            print_and_log('%s %s %s' % (datetime.datetime.now(), filenames.out_letters, letters), filenames.log_fn)
-            save_parameters(nn_params, nn2_params, filenames.out_dir_params, letters)
-            # save_rsq_params_csv(NAMES_test, test_rsqs, nn2_params, out_dir, letters, 'test')
-            if iter >= 10:
-                # if iter >= 0:
-                pass
-                # plot_mh_score_function(nn_params, out_dir, letters + '_nn')
-                # plot_pred_obs(nn_params, nn2_params, INP_train, OBS_train, DEL_LENS_train, NAMES_train, 'train', letters)
-                # plot_pred_obs(nn_params, nn2_params, INP_test, OBS_test, DEL_LENS_test, NAMES_test, 'test', letters)
+        if iter % 5 != 0:
+            save_parameters(nn_params, nn2_params, filenames.out_dir_params, str(iter))
 
         return None
 
