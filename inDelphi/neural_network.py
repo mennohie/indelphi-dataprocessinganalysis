@@ -1,11 +1,14 @@
 import json
-import pickle, datetime
+import pickle
+from datetime import timedelta
+from timeit import default_timer as timer
+
 import autograd.numpy.random as npr
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from autograd.differential_operators import multigrad_dict as multigrad
 from autograd.misc.flatten import flatten
-from inDelphi.util import print_and_log, alphabetize, Filenames
+from inDelphi.util import print_and_log, Filenames
 from helpers.nn_logic import *
 import tqdm
 
@@ -211,6 +214,7 @@ def train_and_create(master_data: dict, filenames: Filenames,
     Trains and creates the MH-NN and MH-less NN
     """
 
+    start = timer()
 
     results = {
         "seed": seed_n,
@@ -219,9 +223,9 @@ def train_and_create(master_data: dict, filenames: Filenames,
         "out_dir": filenames.out_dir,
         "training": [],
         "test": [],
-        "test_no_drop": []
+        "test_no_drop": [],
+        "times": [],
     }
-
     def save_results():
         with open(filenames.out_dir + '/convert.txt', 'w') as convert_file:
             convert_file.write(json.dumps(results))
@@ -250,6 +254,7 @@ def train_and_create(master_data: dict, filenames: Filenames,
         results["training"].append(train_loss)
         results["test"].append(test_loss_drop)
         results["test_no_drop"].append(test_loss)
+        results["times"].append(timedelta(seconds=timer() - start).microseconds)
 
         save_results()
 
