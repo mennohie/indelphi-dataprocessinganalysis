@@ -1,0 +1,26 @@
+out dir: aab
+Loading data...
+0
+Iteration: 0, Train Loss: -0.2243178769390965, Test loss: -0.2469425896555923, Test loss (dropout): -0.24680970988483925.
+1
+Iteration: 1, Train Loss: -0.24010002699875246, Test loss: -0.2660836940875596, Test loss (dropout): -0.2667475706662268.
+2
+Iteration: 2, Train Loss: -0.23708267033753955, Test loss: -0.2624434331715624, Test loss (dropout): -0.2623481069296891.
+3
+Iteration: 3, Train Loss: -0.2384935405440548, Test loss: -0.26378924815785026, Test loss (dropout): -0.26350118452733945.
+4
+Iteration: 4, Train Loss: -0.24268420323042592, Test loss: -0.26789514791805524, Test loss (dropout): -0.2673047833444042.
+5
+Iteration: 5, Train Loss: -0.2508340368103126, Test loss: -0.27584254453365814, Test loss (dropout): -0.2762012318913357.
+6
+Iteration: 6, Train Loss: -0.26461562863912563, Test loss: -0.28978608884057444, Test loss (dropout): -0.2886628609324714.
+7
+Iteration: 7, Train Loss: -0.2834798189761528, Test loss: -0.3086770300784995, Test loss (dropout): -0.3068391592492236.
+8
+Iteration: 8, Train Loss: -0.3011322443032847, Test loss: -0.3224785940314366, Test loss (dropout): -0.31718888368017234.
+9
+Iteration: 9, Train Loss: -0.3133640815421853, Test loss: -0.33054545023437654, Test loss (dropout): -0.32681161844955436.
+10
+Iteration: 10, Train Loss: -0.3257068704883606, Test loss: -0.3375824279613818, Test loss (dropout): -0.3278271191413387.
+11
+Iteration: 11, Train Loss: -0.33838394746684686, Test loss: -0.3489900876476734, Test loss (dropout): -0.33996044643660983.
