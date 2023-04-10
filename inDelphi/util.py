@@ -1,4 +1,4 @@
-from mylib import util
+from inDelphi.mylib import util
 import pickle, subprocess, os
 from dataclasses import dataclass
 

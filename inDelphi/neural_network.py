@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from autograd.differential_operators import multigrad_dict as multigrad
 from autograd.misc.flatten import flatten
-from util import print_and_log, alphabetize, Filenames
+from inDelphi.util import print_and_log, alphabetize, Filenames
 from helpers.nn_logic import *
 import tqdm
 
