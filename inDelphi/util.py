@@ -17,8 +17,8 @@ def print_and_log(text: str, log_fn: str):
 
 def get_data(data_url: str, log_fn: str):
     print_and_log("Loading data...", log_fn)
-    inp_dir = '../pickle_data/'
-    return pickle.load(open(inp_dir + data_url, 'rb'))
+    # inp_dir = '../pickle_data/'
+    return pickle.load(open(data_url, 'rb'))
 
 def alphabetize(num):
     assert num < 26 ** 3, 'num bigger than 17576'
