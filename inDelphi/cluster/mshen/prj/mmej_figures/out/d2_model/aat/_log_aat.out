@@ -1,6 +1,0 @@
-out dir: aat
-Loading data...
-0
-Iteration: 0, Train Loss: -0.22086580524706945, Test loss: -0.2298620781638707.
- Iter | Train Loss	| Train Rsq1	| Train Rsq2	| Test Loss	| Test Rsq1	| Test Rsq2
-2023-04-08 16:01:55.432440 aat aaa
