@@ -24,3 +24,31 @@ Iteration: 9, Train Loss: -0.3133640815421853, Test loss: -0.33054545023437654, 
 Iteration: 10, Train Loss: -0.3257068704883606, Test loss: -0.3375824279613818, Test loss (dropout): -0.3278271191413387.
 11
 Iteration: 11, Train Loss: -0.33838394746684686, Test loss: -0.3489900876476734, Test loss (dropout): -0.33996044643660983.
+12
+Iteration: 12, Train Loss: -0.3537933593465343, Test loss: -0.3634202996517023, Test loss (dropout): -0.3455451511851038.
+13
+Iteration: 13, Train Loss: -0.38481661627803637, Test loss: -0.39724109078251085, Test loss (dropout): -0.37443039704382286.
+14
+Iteration: 14, Train Loss: -0.4258480343383511, Test loss: -0.42561812996624215, Test loss (dropout): -0.4205589271348795.
+15
+Iteration: 15, Train Loss: -0.4406775559122096, Test loss: -0.4356707795965252, Test loss (dropout): -0.42774080279433085.
+16
+Iteration: 16, Train Loss: -0.46708546341085705, Test loss: -0.45019787347896656, Test loss (dropout): -0.43069503590022845.
+17
+Iteration: 17, Train Loss: -0.47688274437049916, Test loss: -0.4500877167823911, Test loss (dropout): -0.42764136564278954.
+18
+Iteration: 18, Train Loss: -0.4712155559991062, Test loss: -0.43961505860009586, Test loss (dropout): -0.42829664854061034.
+19
+Iteration: 19, Train Loss: -0.4755639633909972, Test loss: -0.43956365552065435, Test loss (dropout): -0.43360429521189453.
+20
+Iteration: 20, Train Loss: -0.48288484839733425, Test loss: -0.44697974764808107, Test loss (dropout): -0.43591430615877236.
+21
+Iteration: 21, Train Loss: -0.4921872204743492, Test loss: -0.45559550966485024, Test loss (dropout): -0.4480514704282647.
+22
+Iteration: 22, Train Loss: -0.49826529582687923, Test loss: -0.4603100725878272, Test loss (dropout): -0.45351262748188576.
+23
+Iteration: 23, Train Loss: -0.49868751527941985, Test loss: -0.462997057969616, Test loss (dropout): -0.4525852748296981.
+24
+Iteration: 24, Train Loss: -0.5004308619738326, Test loss: -0.4674436201421737, Test loss (dropout): -0.4525510989815173.
+25
+Iteration: 25, Train Loss: -0.49994432680063167, Test loss: -0.47058237041610185, Test loss (dropout): -0.4551044069867228.
