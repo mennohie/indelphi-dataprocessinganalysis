@@ -12,4 +12,4 @@ def train_model(data_url, out_place):
             nn_params, nn_2_params = nn.train_and_create(master_data, filenames, num_epochs=100, dropout_rate=dropout_rate, seed_n=seed)
 
 if __name__ == '__main__':
-    train_model('pickle_data/inDelphi_counts_and_deletion_features.pkl', './cluster/mshen/prj/mmej_figures/out/d2_model/')
+    train_model('pickle_data/inDelphi_counts_and_deletion_features.pkl', './experiments/mshen/prj/mmej_figures/out/d2_model/')
