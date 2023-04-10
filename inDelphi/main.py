@@ -1,7 +1,7 @@
 # import inDelphi.neural_network as nn
 import inDelphi.neural_network as nn
 # import inDelphi.nearest_neighbours as knn
-from util import get_data, init_folders, Filenames
+from inDelphi.util import get_data, init_folders, Filenames
 def train_model(data_url, out_place):
     for dropout_rate in [0.2, 0.0, 0.1]:
         for seed in [42]:
