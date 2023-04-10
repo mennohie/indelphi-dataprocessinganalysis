@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 from autograd.differential_operators import multigrad_dict as multigrad
 from autograd.misc.flatten import flatten
 from inDelphi.util import print_and_log, Filenames
-from helpers.nn_logic import *
+from inDelphi.helpers.nn_logic import *
 import tqdm
 
 def save_train_test_names(train_nms, test_nms, out_dir):
