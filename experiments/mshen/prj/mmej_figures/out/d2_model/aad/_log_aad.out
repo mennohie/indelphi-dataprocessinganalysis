@@ -1,0 +1,202 @@
+out dir: aad
+Loading data...
+0
+Iteration: 0, Train Loss: -0.2243190219228841, Test loss: -0.2469425896555923, Test loss (dropout): -0.24660927425892448.
+1
+Iteration: 1, Train Loss: -0.24025544666837897, Test loss: -0.26608368604734106, Test loss (dropout): -0.2659471939132491.
+2
+Iteration: 2, Train Loss: -0.23709795886544438, Test loss: -0.26245828579943975, Test loss (dropout): -0.2621645538529136.
+3
+Iteration: 3, Train Loss: -0.23845550518123565, Test loss: -0.26388512706943495, Test loss (dropout): -0.2632686786134312.
+4
+Iteration: 4, Train Loss: -0.24301281370882968, Test loss: -0.2681482035943071, Test loss (dropout): -0.26802552210766173.
+5
+Iteration: 5, Train Loss: -0.25125458553481106, Test loss: -0.2761637586723964, Test loss (dropout): -0.27560106289414454.
+6
+Iteration: 6, Train Loss: -0.265606499381605, Test loss: -0.28983832324066694, Test loss (dropout): -0.28978205030462184.
+7
+Iteration: 7, Train Loss: -0.2858706409065157, Test loss: -0.30892597716376186, Test loss (dropout): -0.30757211895181563.
+8
+Iteration: 8, Train Loss: -0.3036756862551707, Test loss: -0.32305937943616375, Test loss (dropout): -0.3208839045566097.
+9
+Iteration: 9, Train Loss: -0.3172415873253349, Test loss: -0.3300393813825423, Test loss (dropout): -0.32812442628558014.
+10
+Iteration: 10, Train Loss: -0.33042482580801025, Test loss: -0.3368711015695667, Test loss (dropout): -0.33495505260800007.
+11
+Iteration: 11, Train Loss: -0.3454618332044882, Test loss: -0.3484624984530764, Test loss (dropout): -0.34061274360162846.
+12
+Iteration: 12, Train Loss: -0.36077955406429746, Test loss: -0.36277807809030477, Test loss (dropout): -0.3571072727100706.
+13
+Iteration: 13, Train Loss: -0.39913737396870486, Test loss: -0.4007215215601052, Test loss (dropout): -0.3890765191302215.
+14
+Iteration: 14, Train Loss: -0.4391678839601552, Test loss: -0.432446765583431, Test loss (dropout): -0.427593997962545.
+15
+Iteration: 15, Train Loss: -0.4544390143807466, Test loss: -0.4411360918286192, Test loss (dropout): -0.4305979798032398.
+16
+Iteration: 16, Train Loss: -0.4824228976981803, Test loss: -0.4512141560491551, Test loss (dropout): -0.444327177501078.
+17
+Iteration: 17, Train Loss: -0.47969585606241927, Test loss: -0.44342814416315957, Test loss (dropout): -0.4348600642933796.
+18
+Iteration: 18, Train Loss: -0.46902621347334705, Test loss: -0.43122590905617425, Test loss (dropout): -0.42791895700089877.
+19
+Iteration: 19, Train Loss: -0.47250809713154984, Test loss: -0.43343987229182773, Test loss (dropout): -0.43052596384031144.
+20
+Iteration: 20, Train Loss: -0.4801099529901907, Test loss: -0.4417839173336713, Test loss (dropout): -0.4326215147111961.
+21
+Iteration: 21, Train Loss: -0.49554565835803044, Test loss: -0.4540146398915026, Test loss (dropout): -0.4499820318131607.
+22
+Iteration: 22, Train Loss: -0.5075347623792423, Test loss: -0.4637486318999906, Test loss (dropout): -0.45808236524933604.
+23
+Iteration: 23, Train Loss: -0.5032524809836266, Test loss: -0.4647596575270733, Test loss (dropout): -0.4589830306298841.
+24
+Iteration: 24, Train Loss: -0.5000316580485166, Test loss: -0.464268178255643, Test loss (dropout): -0.45142395671166574.
+25
+Iteration: 25, Train Loss: -0.5039723180444965, Test loss: -0.4671137188955576, Test loss (dropout): -0.45923359146552006.
+26
+Iteration: 26, Train Loss: -0.5072968799651667, Test loss: -0.47036445043161024, Test loss (dropout): -0.4620256761121821.
+27
+Iteration: 27, Train Loss: -0.5086813525080425, Test loss: -0.4715599582990001, Test loss (dropout): -0.4687350387011311.
+28
+Iteration: 28, Train Loss: -0.5112255642894586, Test loss: -0.47134163298803405, Test loss (dropout): -0.4615127996390292.
+29
+Iteration: 29, Train Loss: -0.5122334714907196, Test loss: -0.4705908414082205, Test loss (dropout): -0.4632589539529378.
+30
+Iteration: 30, Train Loss: -0.51417685516504, Test loss: -0.47128716172531543, Test loss (dropout): -0.4670130755131991.
+31
+Iteration: 31, Train Loss: -0.518330444003544, Test loss: -0.4759773364765127, Test loss (dropout): -0.47200052795955155.
+32
+Iteration: 32, Train Loss: -0.5149959348820565, Test loss: -0.4796331265269241, Test loss (dropout): -0.47531696089099135.
+33
+Iteration: 33, Train Loss: -0.5174819182126469, Test loss: -0.4801057247706262, Test loss (dropout): -0.47132671363531986.
+34
+Iteration: 34, Train Loss: -0.5181964485745475, Test loss: -0.47779297319624947, Test loss (dropout): -0.46480591728013637.
+35
+Iteration: 35, Train Loss: -0.5162572912747067, Test loss: -0.4781098509933381, Test loss (dropout): -0.46528687165028065.
+36
+Iteration: 36, Train Loss: -0.5200746051110516, Test loss: -0.48152164059385594, Test loss (dropout): -0.46991453961133034.
+37
+Iteration: 37, Train Loss: -0.5198468006256001, Test loss: -0.483340850139799, Test loss (dropout): -0.47472644091419314.
+38
+Iteration: 38, Train Loss: -0.52308823247158, Test loss: -0.4834987726043677, Test loss (dropout): -0.4704935148622815.
+39
+Iteration: 39, Train Loss: -0.5237147181011598, Test loss: -0.482531601050937, Test loss (dropout): -0.47284161875270553.
+40
+Iteration: 40, Train Loss: -0.5221868481037323, Test loss: -0.483255318657083, Test loss (dropout): -0.46834887543646.
+41
+Iteration: 41, Train Loss: -0.524211482522799, Test loss: -0.4857649199565984, Test loss (dropout): -0.47995842252320053.
+42
+Iteration: 42, Train Loss: -0.5265235472058698, Test loss: -0.48655735846052683, Test loss (dropout): -0.4831660334922006.
+43
+Iteration: 43, Train Loss: -0.5244927200511494, Test loss: -0.4861907676982588, Test loss (dropout): -0.4791269843488115.
+44
+Iteration: 44, Train Loss: -0.5250061664131851, Test loss: -0.48528098980662365, Test loss (dropout): -0.4789988959844917.
+45
+Iteration: 45, Train Loss: -0.5272461713207666, Test loss: -0.48626134969405566, Test loss (dropout): -0.48182935743372796.
+46
+Iteration: 46, Train Loss: -0.528405146742167, Test loss: -0.4882738300441877, Test loss (dropout): -0.47600699330822915.
+47
+Iteration: 47, Train Loss: -0.524361399037224, Test loss: -0.4889655582582896, Test loss (dropout): -0.479476478591278.
+48
+Iteration: 48, Train Loss: -0.528808944823652, Test loss: -0.4886075517649389, Test loss (dropout): -0.48481205202282535.
+49
+Iteration: 49, Train Loss: -0.5297965111565093, Test loss: -0.487924363156024, Test loss (dropout): -0.4775852604833127.
+50
+Iteration: 50, Train Loss: -0.5307583510123834, Test loss: -0.48851789745136315, Test loss (dropout): -0.4847555888785522.
+51
+Iteration: 51, Train Loss: -0.5301456555921453, Test loss: -0.4890836202483455, Test loss (dropout): -0.48171137713830875.
+52
+Iteration: 52, Train Loss: -0.5322400019384284, Test loss: -0.4892643301014909, Test loss (dropout): -0.48067004716558037.
+53
+Iteration: 53, Train Loss: -0.5315590593007584, Test loss: -0.48895319475742977, Test loss (dropout): -0.48152446893951606.
+54
+Iteration: 54, Train Loss: -0.5318416048502689, Test loss: -0.4892072713273674, Test loss (dropout): -0.48478237579595673.
+55
+Iteration: 55, Train Loss: -0.5339589034159747, Test loss: -0.49034602024397533, Test loss (dropout): -0.4836433358936553.
+56
+Iteration: 56, Train Loss: -0.531017885526651, Test loss: -0.4906113500673443, Test loss (dropout): -0.4857095485110342.
+57
+Iteration: 57, Train Loss: -0.5340034514091655, Test loss: -0.49018334548506654, Test loss (dropout): -0.4867162839460647.
+58
+Iteration: 58, Train Loss: -0.5340507110053148, Test loss: -0.4900018877264497, Test loss (dropout): -0.48187743426001206.
+59
+Iteration: 59, Train Loss: -0.5360420561465273, Test loss: -0.49022448727751006, Test loss (dropout): -0.4858217872297145.
+60
+Iteration: 60, Train Loss: -0.5335623831237293, Test loss: -0.49020350153786263, Test loss (dropout): -0.48423039949154073.
+61
+Iteration: 61, Train Loss: -0.5363224002906395, Test loss: -0.4900824495685485, Test loss (dropout): -0.48786353938567917.
+62
+Iteration: 62, Train Loss: -0.5336501284876688, Test loss: -0.4898069669987092, Test loss (dropout): -0.48282018849597613.
+63
+Iteration: 63, Train Loss: -0.5354133301354128, Test loss: -0.48933549438776774, Test loss (dropout): -0.4830850624482135.
+64
+Iteration: 64, Train Loss: -0.5353661335587877, Test loss: -0.48926738450646184, Test loss (dropout): -0.48918780167674836.
+65
+Iteration: 65, Train Loss: -0.5360363253272222, Test loss: -0.48947978175622076, Test loss (dropout): -0.4833198046191045.
+66
+Iteration: 66, Train Loss: -0.5366802568643563, Test loss: -0.4896380121911959, Test loss (dropout): -0.4813924812859422.
+67
+Iteration: 67, Train Loss: -0.5358829466588039, Test loss: -0.4896416983322798, Test loss (dropout): -0.48087981086461484.
+68
+Iteration: 68, Train Loss: -0.5339955774371872, Test loss: -0.4895100245518253, Test loss (dropout): -0.4860097172264611.
+69
+Iteration: 69, Train Loss: -0.536666728548058, Test loss: -0.48988697769528494, Test loss (dropout): -0.48354702400670463.
+70
+Iteration: 70, Train Loss: -0.5352685491218597, Test loss: -0.490288257773131, Test loss (dropout): -0.4852806597223211.
+71
+Iteration: 71, Train Loss: -0.5376411759011951, Test loss: -0.490211183557865, Test loss (dropout): -0.48369624714917653.
+72
+Iteration: 72, Train Loss: -0.5334949700572756, Test loss: -0.49015912791375404, Test loss (dropout): -0.482235893558488.
+73
+Iteration: 73, Train Loss: -0.5389406466150429, Test loss: -0.4900305899993866, Test loss (dropout): -0.48531466559805725.
+74
+Iteration: 74, Train Loss: -0.5359617389699192, Test loss: -0.49037909322321854, Test loss (dropout): -0.487231589528012.
+75
+Iteration: 75, Train Loss: -0.5379723241654234, Test loss: -0.4907878671441927, Test loss (dropout): -0.48621150164892235.
+76
+Iteration: 76, Train Loss: -0.537719807446913, Test loss: -0.49076349166717587, Test loss (dropout): -0.4889072888903785.
+77
+Iteration: 77, Train Loss: -0.5381499479292724, Test loss: -0.49038316684590516, Test loss (dropout): -0.4857334838993711.
+78
+Iteration: 78, Train Loss: -0.5372743642630782, Test loss: -0.4900914920380549, Test loss (dropout): -0.4821218868302179.
+79
+Iteration: 79, Train Loss: -0.5385209756132856, Test loss: -0.49034829024144844, Test loss (dropout): -0.48715433017340454.
+80
+Iteration: 80, Train Loss: -0.5379305585044447, Test loss: -0.4905601490152678, Test loss (dropout): -0.4883346653084959.
+81
+Iteration: 81, Train Loss: -0.5389311070196031, Test loss: -0.49060278758262604, Test loss (dropout): -0.484692532461512.
+82
+Iteration: 82, Train Loss: -0.5387231083512957, Test loss: -0.4905068209254017, Test loss (dropout): -0.4847373359555764.
+83
+Iteration: 83, Train Loss: -0.5385238415393181, Test loss: -0.49053066029802445, Test loss (dropout): -0.48237847220377705.
+84
+Iteration: 84, Train Loss: -0.5375412233520974, Test loss: -0.49049078293294346, Test loss (dropout): -0.48429467235008616.
+85
+Iteration: 85, Train Loss: -0.5352254050630842, Test loss: -0.4906651279611715, Test loss (dropout): -0.4862306866621106.
+86
+Iteration: 86, Train Loss: -0.5370572138937125, Test loss: -0.4905639437435917, Test loss (dropout): -0.49044874798949584.
+87
+Iteration: 87, Train Loss: -0.5380961723114986, Test loss: -0.49052355323461094, Test loss (dropout): -0.48967164243189804.
+88
+Iteration: 88, Train Loss: -0.5386409866342103, Test loss: -0.49047461901410716, Test loss (dropout): -0.48517719794116415.
+89
+Iteration: 89, Train Loss: -0.537669467797034, Test loss: -0.4905507128471332, Test loss (dropout): -0.48374915409259844.
+90
+Iteration: 90, Train Loss: -0.5361433257692557, Test loss: -0.4904522295093861, Test loss (dropout): -0.48511145675728895.
+91
+Iteration: 91, Train Loss: -0.5401757132725605, Test loss: -0.49049217231964004, Test loss (dropout): -0.49089630288937636.
+92
+Iteration: 92, Train Loss: -0.5402073362500677, Test loss: -0.4906019152028932, Test loss (dropout): -0.4855268202383387.
+93
+Iteration: 93, Train Loss: -0.5364972210157288, Test loss: -0.4905052915155396, Test loss (dropout): -0.4890646529197567.
+94
+Iteration: 94, Train Loss: -0.5370571385808345, Test loss: -0.4903887714887479, Test loss (dropout): -0.47819016368126865.
+95
+Iteration: 95, Train Loss: -0.5373260949709348, Test loss: -0.4903289787702326, Test loss (dropout): -0.48507743007055304.
+96
+Iteration: 96, Train Loss: -0.5389406025628863, Test loss: -0.4900485176246545, Test loss (dropout): -0.48471303371713004.
+97
+Iteration: 97, Train Loss: -0.5397480991797895, Test loss: -0.4897297048127767, Test loss (dropout): -0.48995722135377157.
+98
+Iteration: 98, Train Loss: -0.539767353798557, Test loss: -0.4898494706246519, Test loss (dropout): -0.4827969847396817.
+99
+Iteration: 99, Train Loss: -0.5412862301821907, Test loss: -0.49006294236306835, Test loss (dropout): -0.4812371150645054.
