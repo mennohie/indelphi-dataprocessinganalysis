@@ -1,12 +1,14 @@
 import inDelphi.neural_network as nn
 # import inDelphi.nearest_neighbours as knn
-from util import get_data, init_folders, Filenames
+from util import get_data, init_folders, Filenames, split_data_set
+
 def train_model(data_url, out_place):
     out_dir, out_letters, out_dir_params, log_fn = init_folders(out_place)
     filenames = Filenames(out_dir, out_letters, out_dir_params, log_fn)
     master_data = get_data(data_url, log_fn)
+    training_data, test_data = split_data_set(master_data)
 
-    nn_params, nn_2_params = nn.train_and_create(master_data, filenames)
+    nn_params, nn_2_params = nn.train_and_create(training_data, filenames, num_epochs=1)
     # rate_model, bp_model, normalizer = knn.train(master_data, filenames)
 
 if __name__ == '__main__':

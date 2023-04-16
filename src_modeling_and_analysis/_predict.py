@@ -203,7 +203,7 @@ def predict_all(seq, cutsite, rate_model, bp_model, normalizer):
 ##
 # Init
 ##
-def init_model(run_iter='aae', param_iter='aaa'):
+def init_model(run_iter='aaf', param_iter='aae'):
     # run_iter = 'aav'
     # param_iter = 'aag'
     # run_iter = 'aaw'
