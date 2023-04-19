@@ -63,9 +63,10 @@ def get_predicted(dataset):
             full_dna_exps.append(line.strip("\n"))
 
     exps = list(set(dataset['exp']))
-    exps = exps[0:1]
+    exps = exps[0:80]
     for i, exp in enumerate(exps):
         print("sequence: ", exp)
+        print(str(i) + " from the " + str(len(exps)))
         header_data = list(dataset[dataset["exp"] == exp]["exp"])[0].split("_")[:-1]
         header = ""
         for h in header_data:
