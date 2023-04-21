@@ -119,8 +119,7 @@ def get_indel_pred(pred_all_df):
     return indel_pred, frame_shift
 
 
-
-if __name__ == "__main__":
+def run():
     master_data = pkl.load(open('../pickle_data/inDelphi_counts_and_deletion_features_p4.pkl', 'rb'))
     training_data, test_data = split_data_set(master_data)
 
@@ -128,15 +127,20 @@ if __name__ == "__main__":
     fraction = use_fraction(test_data, exps)
 
     truth = np.rint(100 * (1 - np.array(list(fraction.values()))))
-    predicted = np.rint(100 *( 1- np.array(list(predicted.values()))))
+    predicted = np.rint(100 * (1 - np.array(list(predicted.values()))))
     corr, p_value = pearsonr(truth, predicted)
 
     plt.rcParams["figure.figsize"] = (10, 6)
-    plt.plot([0, 100], [0,100], linestyle='dashed', c='black')
+    plt.plot([0, 100], [0, 100], linestyle='dashed', c='black')
     plt.scatter(truth, predicted)
-    plt.xlabel("Endogenously observed reading frame \n frequencies among all edited products from the overbeek set in (%)")
+    plt.xlabel(
+        "Endogenously observed reading frame \n frequencies among all edited products from the overbeek set in (%)")
     plt.ylabel("Predicted reading frame \n frequencies among all major editing products")
     plt.title("inDelphi Pearson r = " + "{:.2f}".format(corr))
     sns.regplot(x=truth, y=predicted, scatter=False, color='red')
 
-    plt.savefig("figures/figure_one_p2.png")
+    plt.savefig("figures/frameshift/scalar/fig.png")
+
+
+if __name__ == "__main__":
+   run()
