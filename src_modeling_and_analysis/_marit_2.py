@@ -19,7 +19,8 @@ def get_predict(nn_params, nn2_params, mh_NN_inp, obs_freqs, del_lens):
         ##
         mh_scores = nn_match_score_function(nn_params, mh_NN_inp[idx])
         Js = np.array(del_lens[idx])
-        unnormalized_fq = np.exp(mh_scores - 0.25 * Js)
+        unnormalized_fq = np.exp(mh_scores - 0.50 * Js)
+        # unnormalized_fq = np.exp(mh_scores)
 
         # Add MH-less contribution at full MH deletion lengths
         mh_vector = mh_NN_inp[idx].T[0]
@@ -39,7 +40,7 @@ def get_predict(nn_params, nn2_params, mh_NN_inp, obs_freqs, del_lens):
 
     return obs_freqs_list, predicted_freq_list
 
-def get_param(run_iter='aab', param_iter='aae'):
+def get_param(run_iter='aaf', param_iter='aae'):
     model_out_dir = '/cluster/mshen/prj/mmej_figures/out/d2_model/'
     param_fold = model_out_dir + '%s/parameters/' % run_iter
     nn_params = pickle.load(open("./" + param_fold + '%s_nn.pkl' % param_iter, "rb"))
@@ -96,16 +97,14 @@ if __name__ == '__main__':
 
     obs, pred = get_predict(nn_params, nn2_params, inp_test, obs_test, del_len)
 
+    obs = [item for sublist in obs[0:10] for item in sublist]
+    pred = [item for sublist in pred[0:10] for item in sublist]
 
-    for i in range(len(obs)):
-        plt.clf()
-        plt.plot([0, 1], linestyle='dashed', c='black')
-        plt.scatter(obs[i], pred[i])
-        sns.regplot(x=obs[i], y=pred[i], scatter=False, color='red')
-        plt.savefig("figures/scatter/whole_"+ str(i) + " .png")
 
-        if i == 5:
-            break
-
+    plt.clf()
+    plt.plot([0, 1], linestyle='dashed', c='black')
+    plt.scatter(obs, pred)
+    sns.regplot(x=obs, y=pred, scatter=False, color='red')
+    plt.savefig("figures/scatter/scalar/whole.png")
 
 

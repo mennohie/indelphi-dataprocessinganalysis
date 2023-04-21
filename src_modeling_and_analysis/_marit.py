@@ -95,7 +95,7 @@ def get_predicted(dataset):
             full_dna_exps.append(line.strip("\n"))
 
     exps = list(set(dataset['exp']))
-    exps = exps[0:4]
+    exps = exps[0:10]
     for i, exp in enumerate(exps):
         dl_len = {}
         print("sequence: ", exp)
@@ -165,15 +165,23 @@ if __name__ == '__main__':
     #     plt.savefig("figures/bars/predicted/"+ sequence +".png")
 
     # plt.clf()
+    obs = []
+    pred = []
     for sequence in predicted.keys():
         # plt.clf()
         obs_fracs, pred_fracs = merge_data(observed[sequence], predicted[sequence])
+        obs.append(obs_fracs)
+        pred.append(pred_fracs)
 
-        plt.plot([0, 1], linestyle='dashed', c='black')
-        plt.scatter(obs_fracs, pred_fracs)
-        # sns.regplot(x=obs_fracs, y=pred_fracs, scatter=False, color='red')
+    obs = np.array(obs).flatten()
+    pred = np.array(pred).flatten()
+    plt.plot([0, 1], linestyle='dashed', c='black')
+    corr, p_value = pearsonr(obs, pred)
+    plt.title("inDelphi Pearson r = " + "{:.2f}".format(corr))
+    plt.scatter(obs, pred)
+    sns.regplot(x=obs, y=pred, scatter=False, color='red')
 
-    plt.savefig("figures/scatter/dl_len_" + sequence + ".png")
+    plt.savefig("figures/scatter/in_nn/result.png")
 
 
 

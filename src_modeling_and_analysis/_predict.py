@@ -84,14 +84,15 @@ def predict_all(seq, cutsite, rate_model, bp_model, normalizer):
     mh_len, gc_frac, gt_pos, del_len = featurize(seq, cutsite)
 
     # Form inputs
-    pred_input = np.array([mh_len, gc_frac]).T
+    pred_input = np.array([mh_len, gc_frac, del_len]).T
     del_lens = np.array(del_len).T
 
     # Predict
     mh_scores = model.nn_match_score_function(nn_params, pred_input)
     mh_scores = mh_scores.reshape(mh_scores.shape[0], 1)
     Js = del_lens.reshape(del_lens.shape[0], 1)
-    unfq = np.exp(mh_scores - 0.25 * Js)
+    # unfq = np.exp(mh_scores - 0.50 * Js)
+    unfq = np.exp(mh_scores)
 
     # Add MH-less contribution at full MH deletion lengths
     mh_vector = np.array(mh_len)
@@ -203,7 +204,7 @@ def predict_all(seq, cutsite, rate_model, bp_model, normalizer):
 ##
 # Init
 ##
-def init_model(run_iter='aaf', param_iter='aae'):
+def init_model(run_iter='aac', param_iter='aae'):
     # run_iter = 'aav'
     # param_iter = 'aag'
     # run_iter = 'aaw'
